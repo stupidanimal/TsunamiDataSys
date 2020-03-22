@@ -1,0 +1,54 @@
+server:
+  port: 8082
+
+
+spring:
+  #    activiti:
+  #        database-schema-update: true
+  #        # 自动部署验证设置:true-开启（默认）、false-关闭
+  #        check-process-definitions: false
+  #        process-definition-location-prefix: classpath:/processes/
+  datasource:
+    name: mysql_test
+    type: com.alibaba.druid.pool.DruidDataSource
+    #druid相关配置
+    druid:
+      #监控统计拦截的filters
+      filters: stat
+      driver-class-name: com.mysql.jdbc.Driver
+      #          driver-class-name:com.mysql.jdbc.Driver
+      #基本属性
+      url: jdbc:mysql://localhost:3306/tsunami?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+      username: root
+      # aw
+      #          password: admin123
+      #          p52s
+      password: 123456
+
+  # TODO:[-] 20-03-22 加入的 jpa 相关的配置
+  jpa:
+    spring.jpa.hibernate.ddl-auto: update
+    #SQL 输出
+    spring.jpa.show-sql: true
+    #format 一下 SQL 进行输出
+    #    spring.jpa.properties.hibernate.format_sql:true
+    properties:
+      hibernate:
+        #        format_sql:true
+        dialect:org:
+          hibernate:
+            dialect:
+              MySQL5InnoDBDialect:
+        hbm2ddl:
+          auto:create:
+    #SQL 输出
+    show-sql: true
+    # TODO:[*] 20-03-22  新加入
+    #    database-platform: org.hibernate.spatial.dialect.mysql
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#    properties:
+#       hibernate:
+#         dialect: org.hibernate.spatial.dialect.mysql.MySQL56InnoDBSpatialDialect
+#         globally_quoted_identifiers: true

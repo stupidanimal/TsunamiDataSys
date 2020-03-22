@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.nmefc.tsunmai.entity.StationInfoEntity" table="station_info" schema="tsunami">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="point">
+            <column name="point" sql-type="point" not-null="true"/>
+        </property>
+        <property name="remark">
+            <column name="remark" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="desc">
+            <column name="desc" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="area">
+            <column name="area" sql-type="int(20)" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
