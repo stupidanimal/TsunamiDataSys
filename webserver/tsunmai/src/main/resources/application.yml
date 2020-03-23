@@ -34,13 +34,26 @@ spring:
     #    spring.jpa.properties.hibernate.format_sql:true
     properties:
       hibernate:
+        # TODO:[*] dialect 配置会会出现一些错误
+        # 参考：http://www.hibernatespatial.org/documentation/03-dialects/03-mysql/
+        # 以下类型会引发错误: MySQLSpatialInnoDBDialect,MySQLSpatial56Dialect,MySQLSpatial5InnoDBDialect
+        # Unable to resolve name [org.hibernate.spatial.dialect.mysql.MySQLSpatialInnoDBDialect] as strategy [org.hibernate.dialect.Dialect]
+        # 目前看只有: MySQLSpatialDialect 可以debug起来，但还是会出现无法反序列化的问题
+        dialect:  org.hibernate.spatial.dialect.mysql.MySQLSpatialDialect
         #        format_sql:true
-        dialect:org:
-          hibernate:
-            dialect:
-              MySQL5InnoDBDialect:
-        hbm2ddl:
-          auto:create:
+#        dialect:org:
+      ##          hibernate:
+      ##            spatial:
+      ##              dialect:
+      ##                mysql:
+      ##                  MySQL56InnoDBSpatialDialect
+      ##            dialect:
+      ###              org.hibernate.spatial.dialect.mysql.MySQLSpatialDialect
+      ##              MySQL5InnoDBDialect
+      ##        hbm2ddl:
+      ##          auto:create:
+
+
     #SQL 输出
     show-sql: true
     # TODO:[*] 20-03-22  新加入
