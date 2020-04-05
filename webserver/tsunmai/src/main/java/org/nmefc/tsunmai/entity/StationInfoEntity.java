@@ -53,6 +53,7 @@ public class StationInfoEntity {
     //    @Basic
 //    @Type(type = "com.iheartcity.apiapp.geometry.MySQLGeometryType")
     @Column(name = "point", columnDefinition = "geometry(Point,0)")
+    //@Column(name="point")
     public Point getPoint() {
         return point;
     }
